@@ -1,0 +1,22 @@
+{
+  "name": "oversight",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "author": "Falcon Dai",
+  "description": "It logs tab activities for time tracking.",
+  "icons": {
+    "128": "icon.png"
+  },
+
+  "background": {
+    "scripts": ["dist/eventPage.js"],
+    "persistent": false
+  },
+
+  "options_page": "options.html",
+
+  "permissions": [
+    "history",
+    "tabs"
+  ]
+}
