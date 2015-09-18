@@ -2,14 +2,27 @@
 
 a Chrome extension that tracks your own browsing activities to provide data for behavior changes.
 
+## permissions
+
+This extension stores your browsing activities only locally.
+
+- history
+- tabs
+- storage
+- unlimitedStorage
+
+## development
+
+```bash
+npm install
+npm start
+```
+
 ## TODO
-- [x] visit branching
-- [x] data view
-- [ ] add shortcut to options page
-- [ ] change store keys to `/table/key`
-- [ ] check consistency of events
-- [ ] raw data export
-- [ ] processed data export
+tracked using [issues](https://github.com/falcondai/chrome-browsing-tracker/issues)
 
 ## author
 Falcon Dai <me@falcondai.com>
+
+## license
+MIT License
