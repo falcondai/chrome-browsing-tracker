@@ -17,6 +17,8 @@
 
   "permissions": [
     "history",
-    "tabs"
+    "tabs",
+    "storage",
+    "unlimitedStorage"
   ]
 }

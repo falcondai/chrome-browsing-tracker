@@ -1,7 +1,7 @@
 {
   "name": "chrome-browsing-tracker",
   "version": "1.0.0",
-  "description": "",
+  "description": "a Chrome extension that tracks your own browsing activities to provide data for behavior changes.",
   "main": "manifest.json",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +15,7 @@
     "tracking"
   ],
   "author": "Falcon Dai <me@falcondai.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "lodash": "^3.10.1",
     "moment": "^2.10.6",

@@ -2,12 +2,17 @@ import _ from 'lodash';
 
 // IDEA: save events by tabs?
 // sessionId-tabId: [event1, event2, ...]
-var saveEvent = (eventName, tab) => {
+function saveEvent(eventName, tab) {
   var timestamp = Date.now(),
-      sessionId = sessionStorage.getItem('sessionId') || 0;
+      sessionId = sessionStorage.getItem('sessionId');
+  if (sessionId === null) {
+    sessionId = timestamp
+    sessionStorage.setItem('sessionId', timestamp)
+  }
   console.log('[save]', sessionId, timestamp, eventName, tab);
-  localStorage.setItem(`${sessionId}-${timestamp}`,
-    JSON.stringify([sessionId, timestamp, eventName, tab]))
+  const record = {};
+  record[`${sessionId}-${timestamp}`] = [sessionId, timestamp, eventName, tab];
+  chrome.storage.local.set(record);
 }
 
 // new browsing session
@@ -45,7 +50,6 @@ chrome.tabs.onCreated.addListener((tab) => {
 })
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  console.log(changeInfo);
   if (changeInfo.status === 'complete') {
     saveEvent('loaded', tab)
   } else if (changeInfo.url) {
