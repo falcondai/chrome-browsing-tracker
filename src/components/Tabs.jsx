@@ -8,7 +8,7 @@ class Tabs extends Component {
       <TabRow
         key={id}
         tabId={id}
-        latestUrl={_.last(tab.visits).url}
+        latestUrl={_.last(tab.visits) ? _.last(tab.visits).url : ''}
         createdAt={tab.createdAt}
         removedAt={tab.removedAt}
       />

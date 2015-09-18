@@ -13,6 +13,15 @@
     "persistent": false
   },
 
+  "commands": {
+    "view-collected-data": {
+      "suggested_key": {
+        "default": "Ctrl+B"
+      },
+      "description": "view your tracked browsing activities"
+    }
+  },
+
   "options_page": "options.html",
 
   "permissions": [

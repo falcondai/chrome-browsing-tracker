@@ -15,6 +15,14 @@ function saveEvent(eventName, tab) {
   chrome.storage.local.set(record);
 }
 
+// add command shortcut
+chrome.commands.onCommand.addListener((command) => {
+  debugger;
+  if (command === 'view-collected-data') {
+    chrome.runtime.openOptionsPage();
+  }
+});
+
 // new browsing session
 chrome.runtime.onStartup.addListener(() => {
   var sessionId = Date.now(),
