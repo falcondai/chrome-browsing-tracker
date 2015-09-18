@@ -1,11 +1,11 @@
 {
-  "name": "chrome-history-logger",
+  "name": "chrome-browsing-tracker",
   "version": "1.0.0",
   "description": "",
-  "main": "background.js",
+  "main": "manifest.json",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "supervisor -w webpack.config.js -x webpack -w"
+    "start": "supervisor -w webpack.config.js -x webpack -- -w"
   },
   "keywords": [
     "chrome",

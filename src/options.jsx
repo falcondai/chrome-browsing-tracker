@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import moment from 'moment';
-// import d3 from 'd3';
 import React from 'react';
 
 import App from './components/App';
@@ -20,7 +19,7 @@ var eventIds = _.keys(localStorage).map((x) => {
 }).sort();
 
 var bySession = _.groupBy(eventIds, 0),
-    latestSession = _.max(_.keys(bySession)),
+    latestSession = _.min(_.keys(bySession)),
     lastActiveTab = null,
     tabs = {};
 
@@ -52,6 +51,7 @@ var extractHost = (url) => {
 
 // sort events by timestamps
 bySession[latestSession] = _.sortBy(bySession[latestSession], 1);
+console.log(bySession[latestSession].length);
 // generate tabs, visits, activePeriods
 for (var eventId of bySession[latestSession]) {
   var event = JSON.parse(localStorage.getItem(eventId.join('-')));
