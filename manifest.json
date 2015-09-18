@@ -13,6 +13,22 @@
     "persistent": false
   },
 
+  "commands": {
+    "view-collected-data": {
+      "suggested_key": {
+        "default": "Ctrl+B"
+      },
+      "description": "view your tracked browsing activities"
+    }
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "38": "icon38.png"
+    },
+    "default_title": "oversight"
+  },
+
   "options_page": "options.html",
 
   "permissions": [
