@@ -19,6 +19,10 @@ chrome.storage.local.get(null, (allEvents) => {
     return [+s[0], +s[1]];
   }).sort();
 
+  chrome.storage.local.getBytesInUse(null, (bytes) => {
+    console.info(`recorded ${eventIds.length} events using ${bytes} bytes`);
+  });
+
   var bySession = _.groupBy(eventIds, 0),
       latestSession = _.max(_.keys(bySession)),
       lastActiveTab = null,
@@ -52,7 +56,7 @@ chrome.storage.local.get(null, (allEvents) => {
 
   // sort events by timestamps
   bySession[latestSession] = _.sortBy(bySession[latestSession], 1);
-  console.log('# of events', bySession[latestSession].length);
+  console.info(`session ${latestSession} has ${bySession[latestSession].length} events`);
   // generate tabs, visits, activePeriods
   for (var eventId of bySession[latestSession]) {
     var event = allEvents[eventId.join('-')];
@@ -155,7 +159,7 @@ chrome.storage.local.get(null, (allEvents) => {
   // what domains branch out the most
 
   // promisify `chrome.history.getVisits`
-  var getVisits = (url) => new Promise((resolve, reject) =>   chrome.history.getVisits({url: url}, (visits) => resolve(visits)));
+  var getVisits = (url) => new Promise((resolve, reject) => chrome.history.getVisits({url: url}, (visits) => resolve(visits)));
 
   chrome.history.search({text: '', maxResults: 0}, (historyItems) => {
     var urls = _.pluck(historyItems, 'url');
