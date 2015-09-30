@@ -10,7 +10,7 @@
 
   "background": {
     "scripts": ["dist/eventPage.js"],
-    "persistent": false
+    "persistent": true
   },
 
   "commands": {
